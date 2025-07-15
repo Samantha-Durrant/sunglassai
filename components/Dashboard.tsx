@@ -9,11 +9,13 @@ import {
   Mail, 
   BarChart3, 
   Settings,
-  Plus
+  Plus,
+  Search
 } from 'lucide-react';
 import { BrandManagement } from './BrandManagement';
 import { EmailCampaigns } from './EmailCampaigns';
 import { AnalyticsDashboard } from './AnalyticsDashboard';
+import { SmartDiscovery } from './SmartDiscovery';
 
 interface DashboardProps {
   user: any;
@@ -50,10 +52,14 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
       <nav className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-4 bg-transparent">
+            <TabsList className="grid w-full grid-cols-5 bg-transparent">
               <TabsTrigger value="overview" className="flex items-center space-x-2">
                 <BarChart3 className="h-4 w-4" />
                 <span>Overview</span>
+              </TabsTrigger>
+              <TabsTrigger value="discovery" className="flex items-center space-x-2">
+                <Search className="h-4 w-4" />
+                <span>Smart Discovery</span>
               </TabsTrigger>
               <TabsTrigger value="brands" className="flex items-center space-x-2">
                 <Users className="h-4 w-4" />
@@ -83,8 +89,8 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
                   <Users className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">6</div>
-                  <p className="text-xs text-muted-foreground">Brands available to discover</p>
+                  <div className="text-2xl font-bold">200+</div>
+                  <p className="text-xs text-muted-foreground">Brands in discovery database</p>
                 </CardContent>
               </Card>
               
@@ -136,12 +142,12 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
                     <span>Add Brand</span>
                   </Button>
                   <Button 
-                    onClick={() => setActiveTab('brands')}
+                    onClick={() => setActiveTab('discovery')}
                     variant="outline"
                     className="h-20 flex flex-col items-center justify-center space-y-2 bg-blue-50 hover:bg-blue-100 border-blue-200"
                   >
-                    <Users className="h-6 w-6 text-blue-600" />
-                    <span className="text-blue-600">Discover Brands</span>
+                    <Search className="h-6 w-6 text-blue-600" />
+                    <span className="text-blue-600">Smart Discovery</span>
                   </Button>
                   <Button 
                     onClick={() => setActiveTab('campaigns')}
@@ -162,6 +168,10 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="discovery">
+            <SmartDiscovery />
           </TabsContent>
 
           <TabsContent value="brands">
