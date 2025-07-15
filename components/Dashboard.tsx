@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
@@ -15,7 +15,7 @@ import {
 import { BrandManagement } from './BrandManagement';
 import { EmailCampaigns } from './EmailCampaigns';
 import { AnalyticsDashboard } from './AnalyticsDashboard';
-import { SmartDiscovery } from './SmartDiscovery';
+import { SmartDiscoverySimple } from './SmartDiscoverySimple';
 
 interface DashboardProps {
   user: any;
@@ -171,7 +171,7 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
           </TabsContent>
 
           <TabsContent value="discovery">
-            <SmartDiscovery />
+            <SmartDiscoverySimple />
           </TabsContent>
 
           <TabsContent value="brands">
