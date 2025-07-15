@@ -15,7 +15,7 @@ import {
 import { BrandManagement } from './BrandManagement';
 import { EmailCampaigns } from './EmailCampaigns';
 import { AnalyticsDashboard } from './AnalyticsDashboard';
-import { SmartDiscoverySimple } from './SmartDiscoverySimple';
+import { SmartDiscoveryFixed } from './SmartDiscoveryFixed';
 
 interface DashboardProps {
   user: any;
@@ -171,7 +171,7 @@ export function Dashboard({ user, accessToken, onLogout }: DashboardProps) {
           </TabsContent>
 
           <TabsContent value="discovery">
-            <SmartDiscoverySimple />
+            <SmartDiscoveryFixed />
           </TabsContent>
 
           <TabsContent value="brands">
