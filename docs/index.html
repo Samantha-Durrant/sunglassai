@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunglassAI - AI-Powered Sunglasses Discovery Platform</title>
+    <meta name="description" content="Discover the perfect sunglasses with AI-powered recommendations. Browse premium brands like Ray-Ban, Oakley, Persol, and more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .brands {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .brands h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .brand-card {
+            background: rgba(255,255,255,0.95);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .brand-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .brand-card h4 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .brand-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>SunglassAI</h1>
+            <p>Discover the perfect sunglasses with AI-powered recommendations and explore premium brands from around the world</p>
+        </header>
+        
+        <section class="features">
+            <div class="feature-card">
+                <h3>🔍 Smart Discovery</h3>
+                <p>Our AI-powered search helps you find the perfect sunglasses based on your style preferences, face shape, and lifestyle needs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🏷️ Premium Brands</h3>
+                <p>Browse curated collections from top brands including Ray-Ban, Oakley, Persol, Maui Jim, Warby Parker, and Tom Ford.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📊 Analytics Dashboard</h3>
+                <p>Track your brand preferences, manage your collection, and get personalized recommendations based on your browsing history.</p>
+            </div>
+        </section>
+        
+        <section class="brands">
+            <h2>Featured Brands</h2>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <h4>Ray-Ban</h4>
+                    <p>Classic aviators and wayfarers</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Oakley</h4>
+                    <p>Performance sports eyewear</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Persol</h4>
+                    <p>Italian luxury craftsmanship</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Maui Jim</h4>
+                    <p>Hawaiian-inspired polarized lenses</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Warby Parker</h4>
+                    <p>Modern frames, vintage inspiration</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Tom Ford</h4>
+                    <p>Designer luxury eyewear</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="cta">
+            <a href="https://github.com/Samantha-Durrant/sunglassai" class="cta-button">View on GitHub</a>
+        </div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 SunglassAI. Built with React, TypeScript, and Supabase.</p>
+            <p>🕶️ Find your perfect pair with AI-powered recommendations</p>
+        </footer>
+    </div>
+</body>
+</html>
