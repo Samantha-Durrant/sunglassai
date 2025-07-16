@@ -307,42 +307,91 @@ export const masterBrandDatabase: Brand[] = [
 // Function to generate additional brands programmatically
 export const generateAdditionalBrands = (): Brand[] => {
   const additionalBrands: Brand[] = [];
-  const brandTemplates = [
-    { prefix: 'Solar', suffix: 'Vision' },
-    { prefix: 'Crystal', suffix: 'Optics' },
-    { prefix: 'Urban', suffix: 'Shades' },
-    { prefix: 'Elite', suffix: 'Eyewear' },
-    { prefix: 'Luxe', suffix: 'Specs' },
-    { prefix: 'Metro', suffix: 'Frames' },
-    { prefix: 'Coastal', suffix: 'Vision' },
-    { prefix: 'Summit', suffix: 'Eyewear' },
-    { prefix: 'Aurora', suffix: 'Optics' },
-    { prefix: 'Phoenix', suffix: 'Shades' }
+  
+  // Extensive brand name components for unique combinations
+  const prefixes = [
+    'Solar', 'Crystal', 'Urban', 'Elite', 'Luxe', 'Metro', 'Coastal', 'Summit', 'Aurora', 'Phoenix',
+    'Zenith', 'Prism', 'Apex', 'Stellar', 'Vision', 'Nova', 'Echo', 'Flux', 'Vibe', 'Pulse',
+    'Edge', 'Aura', 'Bolt', 'Drift', 'Glow', 'Halo', 'Icon', 'Jazz', 'Kite', 'Lens',
+    'Mint', 'Neon', 'Onyx', 'Peak', 'Quest', 'Rad', 'Sync', 'Tide', 'Ultra', 'Volt',
+    'Wave', 'Zest', 'Alpha', 'Beta', 'Core', 'Delta', 'Epic', 'Fire', 'Grid', 'Hex',
+    'Iris', 'Jet', 'Koda', 'Luna', 'Max', 'Neo', 'Orb', 'Pure', 'Quantum', 'Rebel',
+    'Silk', 'Titan', 'Uno', 'Vivid', 'Warp', 'Zen', 'Ace', 'Bay', 'Clay', 'Dusk'
   ];
 
-  const categories = ['Fashion', 'Sports', 'Luxury', 'Affordable', 'Designer'];
-  const styles = ['Classic', 'Modern', 'Retro', 'Minimalist', 'Bold'];
-  const countries = ['USA', 'Italy', 'France', 'Germany', 'Japan', 'Australia'];
+  const suffixes = [
+    'Vision', 'Optics', 'Shades', 'Eyewear', 'Specs', 'Frames', 'Glass', 'Look', 'Sight', 'View',
+    'Focus', 'Lens', 'Eye', 'Co', 'Lab', 'Studio', 'Works', 'Craft', 'Design', 'House',
+    'Wear', 'Style', 'Mode', 'Trend', 'Luxe', 'Elite', 'Pro', 'Max', 'Plus', 'Prime',
+    'Core', 'Edge', 'Flex', 'Flow', 'Glow', 'Shine', 'Beam', 'Ray', 'Light', 'Bright',
+    'Clear', 'Sharp', 'Bold', 'Cool', 'Hot', 'Fresh', 'New', 'Modern', 'Classic', 'Retro',
+    'Urban', 'Wild', 'Free', 'Pure', 'True', 'Real', 'Fine', 'Top', 'Best', 'Star'
+  ];
 
+  const categories = ['Fashion', 'Sports', 'Luxury', 'Affordable', 'Designer', 'Performance', 'Premium', 'Ultra Luxury'];
+  const styles = ['Classic', 'Modern', 'Retro', 'Minimalist', 'Bold', 'Vintage', 'Contemporary', 'Artistic', 'Avant-garde', 'Sleek'];
+  const countries = ['USA', 'Italy', 'France', 'Germany', 'Japan', 'Australia', 'Switzerland', 'Denmark', 'Sweden', 'Canada', 'UK', 'Spain', 'Netherlands'];
+
+  // Generate unique brand names
+  const usedNames = new Set();
+  
   for (let i = 21; i <= 200; i++) {
-    const template = brandTemplates[i % brandTemplates.length];
-    const category = categories[i % categories.length];
-    const style = styles[i % styles.length];
-    const country = countries[i % countries.length];
+    let brandName;
+    let attempts = 0;
+    
+    // Generate unique brand name
+    do {
+      const prefixIndex = Math.floor(Math.random() * prefixes.length);
+      const suffixIndex = Math.floor(Math.random() * suffixes.length);
+      brandName = `${prefixes[prefixIndex]} ${suffixes[suffixIndex]}`;
+      attempts++;
+    } while (usedNames.has(brandName) && attempts < 100);
+    
+    usedNames.add(brandName);
+    
+    const category = categories[Math.floor(Math.random() * categories.length)];
+    const style = styles[Math.floor(Math.random() * styles.length)];
+    const country = countries[Math.floor(Math.random() * countries.length)];
+    
+    // Generate realistic price ranges based on category
+    let priceRange;
+    switch (category) {
+      case 'Ultra Luxury':
+        priceRange = `$${300 + Math.floor(Math.random() * 700)}-$${800 + Math.floor(Math.random() * 1200)}`;
+        break;
+      case 'Luxury':
+        priceRange = `$${200 + Math.floor(Math.random() * 300)}-$${400 + Math.floor(Math.random() * 600)}`;
+        break;
+      case 'Premium':
+        priceRange = `$${150 + Math.floor(Math.random() * 250)}-$${300 + Math.floor(Math.random() * 400)}`;
+        break;
+      case 'Performance':
+      case 'Sports':
+        priceRange = `$${80 + Math.floor(Math.random() * 200)}-$${200 + Math.floor(Math.random() * 300)}`;
+        break;
+      case 'Designer':
+        priceRange = `$${120 + Math.floor(Math.random() * 180)}-$${250 + Math.floor(Math.random() * 350)}`;
+        break;
+      default: // Fashion, Affordable
+        priceRange = `$${50 + Math.floor(Math.random() * 100)}-$${120 + Math.floor(Math.random() * 200)}`;
+    }
+    
+    const websiteName = brandName.toLowerCase().replace(/ /g, '');
+    const foundedYear = 1970 + Math.floor(Math.random() * 50);
     
     additionalBrands.push({
       id: i.toString(),
-      name: `${template.prefix} ${template.suffix}`,
+      name: brandName,
       category,
-      priceRange: `$${50 + (i % 300)}-$${150 + (i % 500)}`,
+      priceRange,
       style,
-      website: `www.${template.prefix.toLowerCase()}${template.suffix.toLowerCase()}.com`,
-      email: `partnerships@${template.prefix.toLowerCase()}${template.suffix.toLowerCase()}.com`,
-      description: `Premium ${category.toLowerCase()} eyewear with ${style.toLowerCase()} design`,
+      website: `www.${websiteName}.com`,
+      email: `partnerships@${websiteName}.com`,
+      description: `Premium ${category.toLowerCase()} eyewear featuring ${style.toLowerCase()} design and innovative craftsmanship`,
       headquarters: country,
-      founded: 1990 + (i % 30),
+      founded: foundedYear,
       specialty: `${style} ${category.toLowerCase()} eyewear`,
-      targetMarket: `${category} consumers`
+      targetMarket: `${category} consumers seeking ${style.toLowerCase()} designs`
     });
   }
 
