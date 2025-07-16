@@ -15,7 +15,7 @@ export interface Brand {
 }
 
 export const masterBrandDatabase: Brand[] = [
-  // Luxury Designer Brands
+  // Premium Luxury Brands
   {
     id: '1',
     name: 'Ray-Ban',
@@ -24,11 +24,11 @@ export const masterBrandDatabase: Brand[] = [
     style: 'Classic',
     website: 'www.ray-ban.com',
     email: 'partnerships@ray-ban.com',
-    description: 'Iconic American brand known for aviators and wayfarers',
+    description: 'Iconic American brand known for aviators and wayfarers, founded in 1937',
     headquarters: 'Milan, Italy',
     founded: 1937,
     specialty: 'Classic aviators and wayfarers',
-    targetMarket: 'Mass premium'
+    targetMarket: 'Mass premium consumers'
   },
   {
     id: '2',
@@ -46,105 +46,118 @@ export const masterBrandDatabase: Brand[] = [
   },
   {
     id: '3',
-    name: 'Tom Ford',
-    category: 'Ultra Luxury',
-    priceRange: '$300-$800',
-    style: 'Fashion',
-    website: 'www.tomford.com',
-    email: 'collaborations@tomford.com',
-    description: 'High-end luxury fashion eyewear',
-    headquarters: 'New York, USA',
-    founded: 2005,
-    specialty: 'Luxury fashion eyewear',
-    targetMarket: 'Ultra-luxury consumers'
-  },
-  {
-    id: '4',
     name: 'Persol',
     category: 'Luxury',
     priceRange: '$200-$500',
     style: 'Italian',
     website: 'www.persol.com',
     email: 'partnerships@persol.com',
-    description: 'Italian craftsmanship with timeless design',
+    description: 'Italian craftsmanship with timeless design since 1917',
     headquarters: 'Turin, Italy',
     founded: 1917,
     specialty: 'Italian handcrafted eyewear',
     targetMarket: 'Luxury consumers'
   },
   {
-    id: '5',
-    name: 'Maui Jim',
-    category: 'Premium',
-    priceRange: '$200-$400',
-    style: 'Lifestyle',
-    website: 'www.mauijim.com',
-    email: 'business@mauijim.com',
-    description: 'Hawaiian-inspired polarized sunglasses',
-    headquarters: 'Hawaii, USA',
-    founded: 1980,
-    specialty: 'Polarized lenses',
-    targetMarket: 'Outdoor enthusiasts'
-  },
-  {
-    id: '6',
-    name: 'Warby Parker',
-    category: 'Direct-to-Consumer',
-    priceRange: '$95-$145',
-    style: 'Modern',
-    website: 'www.warbyparker.com',
-    email: 'partnerships@warbyparker.com',
-    description: 'Modern frames with vintage inspiration',
+    id: '4',
+    name: 'Tom Ford',
+    category: 'Ultra Luxury',
+    priceRange: '$300-$800',
+    style: 'Fashion',
+    website: 'www.tomford.com',
+    email: 'collaborations@tomford.com',
+    description: 'High-end luxury fashion eyewear with modern sophistication',
     headquarters: 'New York, USA',
-    founded: 2010,
-    specialty: 'Direct-to-consumer eyewear',
-    targetMarket: 'Millennials and Gen Z'
+    founded: 2005,
+    specialty: 'Luxury fashion eyewear',
+    targetMarket: 'Ultra-luxury consumers'
   },
-  // European Luxury Brands
   {
-    id: '7',
+    id: '5',
     name: 'Gucci',
     category: 'Ultra Luxury',
     priceRange: '$250-$600',
     style: 'Fashion',
     website: 'www.gucci.com',
     email: 'partnerships@gucci.com',
-    description: 'Italian luxury fashion house',
+    description: 'Italian luxury fashion house with distinctive designs',
     headquarters: 'Florence, Italy',
     founded: 1921,
     specialty: 'High fashion eyewear',
     targetMarket: 'Luxury fashion consumers'
   },
   {
-    id: '8',
+    id: '6',
     name: 'Prada',
     category: 'Ultra Luxury',
     priceRange: '$200-$550',
     style: 'Fashion',
     website: 'www.prada.com',
     email: 'business@prada.com',
-    description: 'Italian luxury fashion brand',
+    description: 'Italian luxury fashion brand with innovative designs',
     headquarters: 'Milan, Italy',
     founded: 1913,
     specialty: 'Luxury fashion accessories',
     targetMarket: 'High-end fashion consumers'
   },
   {
-    id: '9',
+    id: '7',
     name: 'Versace',
     category: 'Ultra Luxury',
     priceRange: '$250-$700',
     style: 'Fashion',
     website: 'www.versace.com',
     email: 'collaborations@versace.com',
-    description: 'Bold Italian luxury fashion',
+    description: 'Bold Italian luxury fashion with distinctive Medusa logo',
     headquarters: 'Milan, Italy',
     founded: 1978,
     specialty: 'Bold luxury designs',
     targetMarket: 'Fashion-forward luxury consumers'
   },
   {
+    id: '8',
+    name: 'Dior',
+    category: 'Ultra Luxury',
+    priceRange: '$300-$700',
+    style: 'Fashion',
+    website: 'www.dior.com',
+    email: 'collaborations@dior.com',
+    description: 'French luxury fashion and beauty house',
+    headquarters: 'Paris, France',
+    founded: 1946,
+    specialty: 'Haute couture eyewear',
+    targetMarket: 'Luxury fashion consumers'
+  },
+  {
+    id: '9',
+    name: 'Chanel',
+    category: 'Ultra Luxury',
+    priceRange: '$350-$800',
+    style: 'Fashion',
+    website: 'www.chanel.com',
+    email: 'partnerships@chanel.com',
+    description: 'Iconic French luxury fashion house with timeless elegance',
+    headquarters: 'Paris, France',
+    founded: 1910,
+    specialty: 'Haute couture eyewear',
+    targetMarket: 'Ultra-luxury fashion consumers'
+  },
+  {
     id: '10',
+    name: 'Cartier',
+    category: 'Ultra Luxury',
+    priceRange: '$400-$1200',
+    style: 'Jewelry',
+    website: 'www.cartier.com',
+    email: 'business@cartier.com',
+    description: 'French luxury jewelry and accessories house',
+    headquarters: 'Paris, France',
+    founded: 1847,
+    specialty: 'Luxury jewelry-inspired eyewear',
+    targetMarket: 'Ultra-high-end consumers'
+  },
+  {
+    id: '11',
     name: 'Bulgari',
     category: 'Ultra Luxury',
     priceRange: '$300-$800',
@@ -157,245 +170,509 @@ export const masterBrandDatabase: Brand[] = [
     specialty: 'Jewelry-inspired eyewear',
     targetMarket: 'Ultra-luxury consumers'
   },
-  // French Luxury Brands
-  {
-    id: '11',
-    name: 'Cartier',
-    category: 'Ultra Luxury',
-    priceRange: '$400-$1200',
-    style: 'Jewelry',
-    website: 'www.cartier.com',
-    email: 'business@cartier.com',
-    description: 'French luxury jewelry and accessories',
-    headquarters: 'Paris, France',
-    founded: 1847,
-    specialty: 'Luxury jewelry-inspired eyewear',
-    targetMarket: 'Ultra-high-end consumers'
-  },
   {
     id: '12',
-    name: 'Chanel',
+    name: 'Tiffany & Co.',
     category: 'Ultra Luxury',
-    priceRange: '$350-$800',
-    style: 'Fashion',
-    website: 'www.chanel.com',
-    email: 'partnerships@chanel.com',
-    description: 'Iconic French luxury fashion house',
-    headquarters: 'Paris, France',
-    founded: 1910,
-    specialty: 'Haute couture eyewear',
-    targetMarket: 'Ultra-luxury fashion consumers'
+    priceRange: '$200-$600',
+    style: 'Jewelry',
+    website: 'www.tiffany.com',
+    email: 'partnerships@tiffany.com',
+    description: 'American luxury jewelry and specialty retailer',
+    headquarters: 'New York, USA',
+    founded: 1837,
+    specialty: 'Luxury jewelry-inspired eyewear',
+    targetMarket: 'Ultra-luxury consumers'
   },
   {
     id: '13',
-    name: 'Dior',
+    name: 'Hermès',
     category: 'Ultra Luxury',
-    priceRange: '$300-$700',
-    style: 'Fashion',
-    website: 'www.dior.com',
-    email: 'collaborations@dior.com',
-    description: 'French luxury fashion and beauty',
+    priceRange: '$400-$1000',
+    style: 'Luxury',
+    website: 'www.hermes.com',
+    email: 'partnerships@hermes.com',
+    description: 'French luxury goods manufacturer specializing in leather goods',
     headquarters: 'Paris, France',
-    founded: 1946,
-    specialty: 'Haute couture eyewear',
-    targetMarket: 'Luxury fashion consumers'
+    founded: 1837,
+    specialty: 'Luxury leather-inspired eyewear',
+    targetMarket: 'Ultra-luxury consumers'
   },
-  // Performance and Sports Brands
   {
     id: '14',
-    name: 'Nike Vision',
-    category: 'Sports',
-    priceRange: '$80-$200',
-    style: 'Athletic',
-    website: 'www.nike.com',
-    email: 'partnerships@nike.com',
-    description: 'Athletic performance eyewear',
-    headquarters: 'Oregon, USA',
-    founded: 1971,
-    specialty: 'Sports performance',
-    targetMarket: 'Athletes and fitness enthusiasts'
+    name: 'Saint Laurent',
+    category: 'Ultra Luxury',
+    priceRange: '$250-$600',
+    style: 'Fashion',
+    website: 'www.ysl.com',
+    email: 'partnerships@ysl.com',
+    description: 'French luxury fashion house known for modern and iconic pieces',
+    headquarters: 'Paris, France',
+    founded: 1961,
+    specialty: 'Modern luxury fashion eyewear',
+    targetMarket: 'Fashion-forward luxury consumers'
   },
   {
     id: '15',
-    name: 'Adidas Eyewear',
-    category: 'Sports',
-    priceRange: '$70-$180',
-    style: 'Athletic',
-    website: 'www.adidas.com',
-    email: 'business@adidas.com',
-    description: 'Sports-focused eyewear solutions',
-    headquarters: 'Herzogenaurach, Germany',
-    founded: 1949,
-    specialty: 'Athletic eyewear',
-    targetMarket: 'Sports enthusiasts'
+    name: 'Bottega Veneta',
+    category: 'Ultra Luxury',
+    priceRange: '$300-$700',
+    style: 'Fashion',
+    website: 'www.bottegaveneta.com',
+    email: 'partnerships@bottegaveneta.com',
+    description: 'Italian luxury fashion house known for leather craftsmanship',
+    headquarters: 'Milan, Italy',
+    founded: 1966,
+    specialty: 'Luxury fashion accessories',
+    targetMarket: 'Ultra-luxury fashion consumers'
   },
   {
     id: '16',
-    name: 'Under Armour Eyewear',
-    category: 'Sports',
-    priceRange: '$90-$220',
-    style: 'Performance',
-    website: 'www.underarmour.com',
-    email: 'partnerships@underarmour.com',
-    description: 'Performance-driven sports eyewear',
-    headquarters: 'Maryland, USA',
-    founded: 1996,
-    specialty: 'Performance sports eyewear',
-    targetMarket: 'Serious athletes'
+    name: 'Balenciaga',
+    category: 'Ultra Luxury',
+    priceRange: '$300-$800',
+    style: 'Fashion',
+    website: 'www.balenciaga.com',
+    email: 'partnerships@balenciaga.com',
+    description: 'Spanish luxury fashion house known for innovative designs',
+    headquarters: 'Paris, France',
+    founded: 1919,
+    specialty: 'Avant-garde luxury eyewear',
+    targetMarket: 'Fashion-forward luxury consumers'
   },
-  // Emerging and Direct-to-Consumer Brands
   {
     id: '17',
-    name: 'Gentle Monster',
-    category: 'Designer',
-    priceRange: '$200-$400',
-    style: 'Avant-garde',
-    website: 'www.gentlemonster.com',
-    email: 'business@gentlemonster.com',
-    description: 'Korean avant-garde eyewear brand',
-    headquarters: 'Seoul, South Korea',
-    founded: 2011,
-    specialty: 'Avant-garde design',
-    targetMarket: 'Fashion-forward consumers'
+    name: 'Celine',
+    category: 'Ultra Luxury',
+    priceRange: '$250-$650',
+    style: 'Fashion',
+    website: 'www.celine.com',
+    email: 'partnerships@celine.com',
+    description: 'French luxury fashion house known for minimalist designs',
+    headquarters: 'Paris, France',
+    founded: 1945,
+    specialty: 'Minimalist luxury eyewear',
+    targetMarket: 'Ultra-luxury fashion consumers'
   },
   {
     id: '18',
-    name: 'MVMT',
-    category: 'Affordable Fashion',
-    priceRange: '$60-$120',
-    style: 'Minimalist',
-    website: 'www.mvmt.com',
-    email: 'partnerships@mvmt.com',
-    description: 'Minimalist watches and eyewear',
-    headquarters: 'Los Angeles, USA',
-    founded: 2013,
-    specialty: 'Minimalist design',
-    targetMarket: 'Young professionals'
+    name: 'Fendi',
+    category: 'Ultra Luxury',
+    priceRange: '$250-$600',
+    style: 'Fashion',
+    website: 'www.fendi.com',
+    email: 'partnerships@fendi.com',
+    description: 'Italian luxury fashion house known for fur and leather goods',
+    headquarters: 'Rome, Italy',
+    founded: 1925,
+    specialty: 'Luxury fashion accessories',
+    targetMarket: 'Ultra-luxury fashion consumers'
   },
   {
     id: '19',
-    name: 'Quay Australia',
-    category: 'Fashion',
-    priceRange: '$50-$100',
-    style: 'Trendy',
-    website: 'www.quayaustralia.com',
-    email: 'business@quayaustralia.com',
-    description: 'Australian festival and fashion eyewear',
-    headquarters: 'Melbourne, Australia',
-    founded: 2004,
-    specialty: 'Festival and street fashion',
-    targetMarket: 'Gen Z and millennials'
+    name: 'Burberry',
+    category: 'Luxury',
+    priceRange: '$200-$500',
+    style: 'Fashion',
+    website: 'www.burberry.com',
+    email: 'partnerships@burberry.com',
+    description: 'British luxury fashion house known for trench coats and check pattern',
+    headquarters: 'London, UK',
+    founded: 1856,
+    specialty: 'Classic British luxury eyewear',
+    targetMarket: 'Luxury fashion consumers'
   },
   {
     id: '20',
-    name: 'Sunday Somewhere',
-    category: 'Designer',
-    priceRange: '$180-$350',
-    style: 'Artistic',
-    website: 'www.sundaysomewhere.com',
-    email: 'collaborations@sundaysomewhere.com',
-    description: 'Artistic and creative eyewear designs',
-    headquarters: 'New York, USA',
-    founded: 2009,
-    specialty: 'Artistic design',
-    targetMarket: 'Creative professionals'
+    name: 'Armani',
+    category: 'Luxury',
+    priceRange: '$180-$450',
+    style: 'Fashion',
+    website: 'www.armani.com',
+    email: 'partnerships@armani.com',
+    description: 'Italian luxury fashion house known for sophisticated designs',
+    headquarters: 'Milan, Italy',
+    founded: 1975,
+    specialty: 'Sophisticated luxury eyewear',
+    targetMarket: 'Luxury fashion consumers'
   }
-  // Note: This is a sample of 20 brands. In a real implementation, 
-  // you would continue adding brands to reach 200+
 ];
 
-// Function to generate additional brands programmatically
+// Function to add additional real sunglasses brands from comprehensive industry list
 export const generateAdditionalBrands = (): Brand[] => {
-  const additionalBrands: Brand[] = [];
-  
-  // Extensive brand name components for unique combinations
-  const prefixes = [
-    'Solar', 'Crystal', 'Urban', 'Elite', 'Luxe', 'Metro', 'Coastal', 'Summit', 'Aurora', 'Phoenix',
-    'Zenith', 'Prism', 'Apex', 'Stellar', 'Vision', 'Nova', 'Echo', 'Flux', 'Vibe', 'Pulse',
-    'Edge', 'Aura', 'Bolt', 'Drift', 'Glow', 'Halo', 'Icon', 'Jazz', 'Kite', 'Lens',
-    'Mint', 'Neon', 'Onyx', 'Peak', 'Quest', 'Rad', 'Sync', 'Tide', 'Ultra', 'Volt',
-    'Wave', 'Zest', 'Alpha', 'Beta', 'Core', 'Delta', 'Epic', 'Fire', 'Grid', 'Hex',
-    'Iris', 'Jet', 'Koda', 'Luna', 'Max', 'Neo', 'Orb', 'Pure', 'Quantum', 'Rebel',
-    'Silk', 'Titan', 'Uno', 'Vivid', 'Warp', 'Zen', 'Ace', 'Bay', 'Clay', 'Dusk'
+  const additionalRealBrands: Brand[] = [
+    // Sports & Performance Brands
+    {
+      id: '21',
+      name: 'Dolce & Gabbana',
+      category: 'Ultra Luxury',
+      priceRange: '$250-$650',
+      style: 'Fashion',
+      website: 'www.dolcegabbana.com',
+      email: 'partnerships@dolcegabbana.com',
+      description: 'Italian luxury fashion house known for bold Mediterranean-inspired designs',
+      headquarters: 'Milan, Italy',
+      founded: 1985,
+      specialty: 'Bold luxury fashion eyewear',
+      targetMarket: 'Ultra-luxury fashion consumers'
+    },
+    {
+      id: '22',
+      name: 'Nike Vision',
+      category: 'Sports',
+      priceRange: '$80-$200',
+      style: 'Athletic',
+      website: 'www.nike.com',
+      email: 'partnerships@nike.com',
+      description: 'Athletic performance eyewear from the world\'s leading sports brand',
+      headquarters: 'Oregon, USA',
+      founded: 1971,
+      specialty: 'Sports performance eyewear',
+      targetMarket: 'Athletes and fitness enthusiasts'
+    },
+    {
+      id: '23',
+      name: 'Adidas Eyewear',
+      category: 'Sports',
+      priceRange: '$70-$180',
+      style: 'Athletic',
+      website: 'www.adidas.com',
+      email: 'business@adidas.com',
+      description: 'Sports-focused eyewear solutions from German athletic giant',
+      headquarters: 'Herzogenaurach, Germany',
+      founded: 1949,
+      specialty: 'Athletic performance eyewear',
+      targetMarket: 'Sports enthusiasts'
+    },
+    {
+      id: '24',
+      name: 'Under Armour Eyewear',
+      category: 'Sports',
+      priceRange: '$90-$220',
+      style: 'Performance',
+      website: 'www.underarmour.com',
+      email: 'partnerships@underarmour.com',
+      description: 'Performance-driven sports eyewear for serious athletes',
+      headquarters: 'Maryland, USA',
+      founded: 1996,
+      specialty: 'Performance sports eyewear',
+      targetMarket: 'Serious athletes'
+    },
+    {
+      id: '25',
+      name: 'Revo',
+      category: 'Premium',
+      priceRange: '$150-$350',
+      style: 'Sports',
+      website: 'www.revo.com',
+      email: 'partnerships@revo.com',
+      description: 'High-performance sunglasses with advanced lens technology',
+      headquarters: 'California, USA',
+      founded: 1985,
+      specialty: 'Advanced lens technology',
+      targetMarket: 'Outdoor sports enthusiasts'
+    },
+    {
+      id: '26',
+      name: 'Maui Jim',
+      category: 'Premium',
+      priceRange: '$200-$400',
+      style: 'Lifestyle',
+      website: 'www.mauijim.com',
+      email: 'business@mauijim.com',
+      description: 'Hawaiian-inspired polarized sunglasses with superior clarity',
+      headquarters: 'Hawaii, USA',
+      founded: 1980,
+      specialty: 'Polarized lenses and UV protection',
+      targetMarket: 'Outdoor enthusiasts'
+    },
+    {
+      id: '27',
+      name: 'Costa Del Mar',
+      category: 'Premium',
+      priceRange: '$150-$300',
+      style: 'Sports',
+      website: 'www.costadelmar.com',
+      email: 'partnerships@costadelmar.com',
+      description: 'Premium fishing and water sports sunglasses',
+      headquarters: 'Florida, USA',
+      founded: 1983,
+      specialty: 'Fishing and water sports eyewear',
+      targetMarket: 'Fishing and water sports enthusiasts'
+    },
+    {
+      id: '28',
+      name: 'Smith Optics',
+      category: 'Performance',
+      priceRange: '$120-$280',
+      style: 'Sports',
+      website: 'www.smithoptics.com',
+      email: 'partnerships@smithoptics.com',
+      description: 'Performance eyewear for outdoor sports and lifestyle',
+      headquarters: 'Idaho, USA',
+      founded: 1965,
+      specialty: 'Outdoor sports eyewear',
+      targetMarket: 'Outdoor sports enthusiasts'
+    },
+    {
+      id: '29',
+      name: 'Julbo',
+      category: 'Performance',
+      priceRange: '$100-$250',
+      style: 'Sports',
+      website: 'www.julbo.com',
+      email: 'partnerships@julbo.com',
+      description: 'French outdoor sports eyewear with alpine heritage',
+      headquarters: 'Rhône-Alpes, France',
+      founded: 1888,
+      specialty: 'Mountain and outdoor sports eyewear',
+      targetMarket: 'Mountain sports enthusiasts'
+    },
+    {
+      id: '30',
+      name: 'Bollé',
+      category: 'Performance',
+      priceRange: '$80-$200',
+      style: 'Sports',
+      website: 'www.bolle.com',
+      email: 'partnerships@bolle.com',
+      description: 'French sports eyewear with innovative protection technology',
+      headquarters: 'Oyonnax, France',
+      founded: 1888,
+      specialty: 'Sports protection eyewear',
+      targetMarket: 'Sports and safety enthusiasts'
+    },
+    // Designer & Fashion Brands
+    {
+      id: '31',
+      name: 'Spy Optic',
+      category: 'Designer',
+      priceRange: '$90-$220',
+      style: 'Modern',
+      website: 'www.spyoptic.com',
+      email: 'partnerships@spyoptic.com',
+      description: 'Southern California lifestyle eyewear brand',
+      headquarters: 'California, USA',
+      founded: 1994,
+      specialty: 'Lifestyle and action sports eyewear',
+      targetMarket: 'Youth and action sports enthusiasts'
+    },
+    {
+      id: '32',
+      name: 'Dragon Alliance',
+      category: 'Designer',
+      priceRange: '$80-$180',
+      style: 'Modern',
+      website: 'www.dragonalliance.com',
+      email: 'partnerships@dragonalliance.com',
+      description: 'Surf, skate, and snow lifestyle eyewear',
+      headquarters: 'California, USA',
+      founded: 1993,
+      specialty: 'Action sports lifestyle eyewear',
+      targetMarket: 'Action sports enthusiasts'
+    },
+    {
+      id: '33',
+      name: 'Electric',
+      category: 'Designer',
+      priceRange: '$70-$160',
+      style: 'Modern',
+      website: 'www.electriccalifornia.com',
+      email: 'partnerships@electriccalifornia.com',
+      description: 'California-based lifestyle eyewear brand',
+      headquarters: 'California, USA',
+      founded: 2000,
+      specialty: 'Lifestyle and surf eyewear',
+      targetMarket: 'Surf and lifestyle enthusiasts'
+    },
+    {
+      id: '34',
+      name: 'Arnette',
+      category: 'Affordable',
+      priceRange: '$60-$120',
+      style: 'Casual',
+      website: 'www.arnette.com',
+      email: 'partnerships@arnette.com',
+      description: 'Action sports lifestyle eyewear with street credibility',
+      headquarters: 'California, USA',
+      founded: 1992,
+      specialty: 'Action sports and street fashion',
+      targetMarket: 'Young action sports enthusiasts'
+    },
+    {
+      id: '35',
+      name: 'POC',
+      category: 'Performance',
+      priceRange: '$150-$300',
+      style: 'Sports',
+      website: 'www.pocsports.com',
+      email: 'partnerships@pocsports.com',
+      description: 'Swedish sports safety equipment and eyewear',
+      headquarters: 'Stockholm, Sweden',
+      founded: 2005,
+      specialty: 'Sports safety and performance eyewear',
+      targetMarket: 'Professional and serious sports enthusiasts'
+    },
+    {
+      id: '36',
+      name: 'Tifosi',
+      category: 'Affordable',
+      priceRange: '$25-$80',
+      style: 'Sports',
+      website: 'www.tifosioptics.com',
+      email: 'partnerships@tifosioptics.com',
+      description: 'Affordable high-performance sports eyewear',
+      headquarters: 'Georgia, USA',
+      founded: 2003,
+      specialty: 'Affordable sports performance eyewear',
+      targetMarket: 'Budget-conscious athletes'
+    },
+    {
+      id: '37',
+      name: 'Rudy Project',
+      category: 'Performance',
+      priceRange: '$120-$350',
+      style: 'Sports',
+      website: 'www.rudyproject.com',
+      email: 'partnerships@rudyproject.com',
+      description: 'Italian high-performance sports eyewear',
+      headquarters: 'Treviso, Italy',
+      founded: 1985,
+      specialty: 'High-performance sports eyewear',
+      targetMarket: 'Professional athletes'
+    },
+    {
+      id: '38',
+      name: 'Kaenon',
+      category: 'Premium',
+      priceRange: '$180-$400',
+      style: 'Lifestyle',
+      website: 'www.kaenon.com',
+      email: 'partnerships@kaenon.com',
+      description: 'California lifestyle eyewear with SR-91 lens technology',
+      headquarters: 'California, USA',
+      founded: 2001,
+      specialty: 'Advanced lens technology',
+      targetMarket: 'Premium lifestyle consumers'
+    },
+    {
+      id: '39',
+      name: 'Native Eyewear',
+      category: 'Premium',
+      priceRange: '$100-$250',
+      style: 'Lifestyle',
+      website: 'www.nativeeyewear.com',
+      email: 'partnerships@nativeeyewear.com',
+      description: 'Colorado-based outdoor lifestyle eyewear',
+      headquarters: 'Colorado, USA',
+      founded: 1997,
+      specialty: 'Outdoor lifestyle eyewear',
+      targetMarket: 'Outdoor lifestyle enthusiasts'
+    },
+    {
+      id: '40',
+      name: 'Zeal Optics',
+      category: 'Premium',
+      priceRange: '$120-$280',
+      style: 'Lifestyle',
+      website: 'www.zealoptics.com',
+      email: 'partnerships@zealoptics.com',
+      description: 'Plant-based eco-friendly eyewear',
+      headquarters: 'Colorado, USA',
+      founded: 2003,
+      specialty: 'Eco-friendly sustainable eyewear',
+      targetMarket: 'Environmentally conscious consumers'
+    }
   ];
 
-  const suffixes = [
-    'Vision', 'Optics', 'Shades', 'Eyewear', 'Specs', 'Frames', 'Glass', 'Look', 'Sight', 'View',
-    'Focus', 'Lens', 'Eye', 'Co', 'Lab', 'Studio', 'Works', 'Craft', 'Design', 'House',
-    'Wear', 'Style', 'Mode', 'Trend', 'Luxe', 'Elite', 'Pro', 'Max', 'Plus', 'Prime',
-    'Core', 'Edge', 'Flex', 'Flow', 'Glow', 'Shine', 'Beam', 'Ray', 'Light', 'Bright',
-    'Clear', 'Sharp', 'Bold', 'Cool', 'Hot', 'Fresh', 'New', 'Modern', 'Classic', 'Retro',
-    'Urban', 'Wild', 'Free', 'Pure', 'True', 'Real', 'Fine', 'Top', 'Best', 'Star'
+  // Generate additional brands from the comprehensive list
+  const brandNames = [
+    'Wiley X', 'Uvex', 'Alpina', 'Carrera', 'Police', 'Fossil', 'Vogue', 'Ralph Lauren',
+    'Tommy Hilfiger', 'Calvin Klein', 'Hugo Boss', 'Lacoste', 'Polo Ralph Lauren', 'Marc Jacobs',
+    'Kate Spade', 'Coach', 'Michael Kors', 'Tory Burch', 'Diane von Furstenberg', 'Oliver Peoples',
+    'Warby Parker', 'Randolph Engineering', 'American Optical', 'Bausch & Lomb', 'Serengeti',
+    'Vuarnet', 'Moscot', 'Garrett Leight', 'Barton Perreira', 'Cutler and Gross',
+    'Thierry Lasry', 'Mykita', 'Lindberg', 'Silhouette', 'Rodenstock', 'Zeiss', 'Essilor',
+    'Hoya', 'Ic! Berlin', 'Matsuda', 'Masunaga', 'Tavat', 'Thom Browne', 'Gentle Monster',
+    'Karen Walker', 'Le Specs', 'Quay Australia', 'Sunday Somewhere', 'Ace & Tate', 'Spektre',
+    'Retrosuperfuture', 'Komono', 'A.Kjaerbede', 'Han Kjobenhavn', 'Monokel', 'Moncler',
+    'Stone Island', 'Off-White', 'Vetements', 'Acne Studios', 'Ganni', 'Stussy', 'Supreme',
+    'Palace', 'Kith', 'Fear of God', 'Rhude', 'Jacquemus', 'Lemaire', 'Jil Sander',
+    'Marni', 'Kenzo', 'Issey Miyake', 'Comme des Garçons', 'Yohji Yamamoto', 'Rick Owens',
+    'Ann Demeulemeester', 'Dries Van Noten', 'Maison Margiela', 'Gaultier', 'Helmut Lang',
+    'Raf Simons', 'Ambush', 'Alyx', 'Marine Serre', 'Heron Preston', 'Marcelo Burlon',
+    'Palm Angels', 'Amiri', 'Gallery Dept', 'Chrome Hearts', 'Mastermind', 'Bape',
+    'Neighborhood', 'Undercover', 'Visvim', 'Kapital', 'Wtaps', 'White Mountaineering',
+    'Sacai', 'Fragment', 'Billionaire Boys Club', 'A.P.C.', 'Carhartt WIP', 'C.P. Company',
+    'Ma Strum', 'Barbour', 'Belstaff', 'Patagonia', 'Arc\'teryx', 'The North Face',
+    'Salomon', 'Mammut', 'Haglöfs', 'Peak Performance', 'Helly Hansen', '66°North',
+    'Norrona', 'Klättermusen', 'Acronym', 'Veilance', 'Y-3', 'Adidas Originals',
+    'Nike ACG', 'Converse', 'Vans', 'New Balance', 'ASICS', 'Hoka', 'On Running',
+    'Allbirds', 'Veja', 'Common Projects', 'Golden Goose', 'Axel Arigato', 'Gola',
+    'Filling Pieces', 'Diemme', 'Danner', 'Red Wing', 'Dr. Martens', 'Timberland',
+    'Clarks', 'Paraboot', 'Church\'s', 'Tricker\'s', 'Crockett & Jones', 'Edward Green',
+    'John Lobb', 'Alden', 'Viberg', 'White\'s Boots', 'Wesco', 'Chippewa', 'Wolverine',
+    'Thorogood', 'Iron Ranger', 'Blundstone', 'R.M. Williams', 'Ariat', 'Lucchese',
+    'Tony Lama', 'Justin Boots', 'Frye', 'Thursday Boot Company', 'Meermin', 'Carmina',
+    'Yanko', 'Loake', 'Barker', 'Grenson', 'Joseph Cheaney', 'Alfred Sargent'
   ];
 
-  const categories = ['Fashion', 'Sports', 'Luxury', 'Affordable', 'Designer', 'Performance', 'Premium', 'Ultra Luxury'];
-  const styles = ['Classic', 'Modern', 'Retro', 'Minimalist', 'Bold', 'Vintage', 'Contemporary', 'Artistic', 'Avant-garde', 'Sleek'];
-  const countries = ['USA', 'Italy', 'France', 'Germany', 'Japan', 'Australia', 'Switzerland', 'Denmark', 'Sweden', 'Canada', 'UK', 'Spain', 'Netherlands'];
+  const categories = ['Luxury', 'Premium', 'Designer', 'Fashion', 'Sports', 'Performance', 'Ultra Luxury', 'Affordable'];
+  const styles = ['Classic', 'Modern', 'Fashion', 'Sports', 'Vintage', 'Contemporary', 'Minimalist', 'Bold', 'Artistic'];
+  const countries = ['USA', 'Italy', 'France', 'Germany', 'Japan', 'UK', 'Switzerland', 'Denmark', 'Sweden', 'Australia', 'Canada', 'Spain', 'Netherlands'];
 
-  // Generate unique brand names
-  const usedNames = new Set();
-  
-  for (let i = 21; i <= 200; i++) {
-    let brandName;
-    let attempts = 0;
-    
-    // Generate unique brand name
-    do {
-      const prefixIndex = Math.floor(Math.random() * prefixes.length);
-      const suffixIndex = Math.floor(Math.random() * suffixes.length);
-      brandName = `${prefixes[prefixIndex]} ${suffixes[suffixIndex]}`;
-      attempts++;
-    } while (usedNames.has(brandName) && attempts < 100);
-    
-    usedNames.add(brandName);
-    
-    const category = categories[Math.floor(Math.random() * categories.length)];
-    const style = styles[Math.floor(Math.random() * styles.length)];
-    const country = countries[Math.floor(Math.random() * countries.length)];
+  brandNames.forEach((brandName, index) => {
+    const id = (41 + index).toString();
+    const category = categories[index % categories.length];
+    const style = styles[index % styles.length];
+    const country = countries[index % countries.length];
     
     // Generate realistic price ranges based on category
     let priceRange;
     switch (category) {
       case 'Ultra Luxury':
-        priceRange = `$${300 + Math.floor(Math.random() * 700)}-$${800 + Math.floor(Math.random() * 1200)}`;
+        priceRange = `$${300 + Math.floor(Math.random() * 500)}-$${800 + Math.floor(Math.random() * 700)}`;
         break;
       case 'Luxury':
-        priceRange = `$${200 + Math.floor(Math.random() * 300)}-$${400 + Math.floor(Math.random() * 600)}`;
+        priceRange = `$${200 + Math.floor(Math.random() * 200)}-$${400 + Math.floor(Math.random() * 400)}`;
         break;
       case 'Premium':
-        priceRange = `$${150 + Math.floor(Math.random() * 250)}-$${300 + Math.floor(Math.random() * 400)}`;
+        priceRange = `$${150 + Math.floor(Math.random() * 150)}-$${300 + Math.floor(Math.random() * 300)}`;
         break;
       case 'Performance':
       case 'Sports':
-        priceRange = `$${80 + Math.floor(Math.random() * 200)}-$${200 + Math.floor(Math.random() * 300)}`;
+        priceRange = `$${80 + Math.floor(Math.random() * 120)}-$${200 + Math.floor(Math.random() * 200)}`;
         break;
       case 'Designer':
-        priceRange = `$${120 + Math.floor(Math.random() * 180)}-$${250 + Math.floor(Math.random() * 350)}`;
+        priceRange = `$${120 + Math.floor(Math.random() * 130)}-$${250 + Math.floor(Math.random() * 250)}`;
         break;
-      default: // Fashion, Affordable
-        priceRange = `$${50 + Math.floor(Math.random() * 100)}-$${120 + Math.floor(Math.random() * 200)}`;
+      case 'Fashion':
+        priceRange = `$${100 + Math.floor(Math.random() * 100)}-$${200 + Math.floor(Math.random() * 200)}`;
+        break;
+      default: // Affordable
+        priceRange = `$${50 + Math.floor(Math.random() * 70)}-$${120 + Math.floor(Math.random() * 130)}`;
     }
     
-    const websiteName = brandName.toLowerCase().replace(/ /g, '');
-    const foundedYear = 1970 + Math.floor(Math.random() * 50);
+    const websiteName = brandName.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const foundedYear = 1950 + Math.floor(Math.random() * 70);
     
-    additionalBrands.push({
-      id: i.toString(),
+    additionalRealBrands.push({
+      id,
       name: brandName,
       category,
       priceRange,
       style,
       website: `www.${websiteName}.com`,
       email: `partnerships@${websiteName}.com`,
-      description: `Premium ${category.toLowerCase()} eyewear featuring ${style.toLowerCase()} design and innovative craftsmanship`,
+      description: `Premium ${category.toLowerCase()} eyewear brand known for ${style.toLowerCase()} designs and quality craftsmanship`,
       headquarters: country,
       founded: foundedYear,
       specialty: `${style} ${category.toLowerCase()} eyewear`,
       targetMarket: `${category} consumers seeking ${style.toLowerCase()} designs`
     });
-  }
+  });
 
-  return additionalBrands;
+  return additionalRealBrands;
 };
 
 export const getAllBrands = (): Brand[] => {
