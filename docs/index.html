@@ -577,45 +577,38 @@
             const additionalBrands = [];
             
             // Extensive brand name components for unique combinations
-            const prefixes = [
-                'Solar', 'Crystal', 'Urban', 'Elite', 'Luxe', 'Metro', 'Coastal', 'Summit', 'Aurora', 'Phoenix',
-                'Zenith', 'Prism', 'Apex', 'Stellar', 'Vision', 'Nova', 'Echo', 'Flux', 'Vibe', 'Pulse',
-                'Edge', 'Aura', 'Bolt', 'Drift', 'Glow', 'Halo', 'Icon', 'Jazz', 'Kite', 'Lens',
-                'Mint', 'Neon', 'Onyx', 'Peak', 'Quest', 'Rad', 'Sync', 'Tide', 'Ultra', 'Volt',
-                'Wave', 'Zest', 'Alpha', 'Beta', 'Core', 'Delta', 'Epic', 'Fire', 'Grid', 'Hex',
-                'Iris', 'Jet', 'Koda', 'Luna', 'Max', 'Neo', 'Orb', 'Pure', 'Quantum', 'Rebel',
-                'Silk', 'Titan', 'Uno', 'Vivid', 'Warp', 'Zen', 'Ace', 'Bay', 'Clay', 'Dusk'
-            ];
-
-            const suffixes = [
-                'Vision', 'Optics', 'Shades', 'Eyewear', 'Specs', 'Frames', 'Glass', 'Look', 'Sight', 'View',
-                'Focus', 'Lens', 'Eye', 'Co', 'Lab', 'Studio', 'Works', 'Craft', 'Design', 'House',
-                'Wear', 'Style', 'Mode', 'Trend', 'Luxe', 'Elite', 'Pro', 'Max', 'Plus', 'Prime',
-                'Core', 'Edge', 'Flex', 'Flow', 'Glow', 'Shine', 'Beam', 'Ray', 'Light', 'Bright',
-                'Clear', 'Sharp', 'Bold', 'Cool', 'Hot', 'Fresh', 'New', 'Modern', 'Classic', 'Retro',
-                'Urban', 'Wild', 'Free', 'Pure', 'True', 'Real', 'Fine', 'Top', 'Best', 'Star'
+            // Real sunglasses brand names from comprehensive industry list
+            const realBrandNames = [
+                'Bulgari', 'Tiffany & Co.', 'Hermès', 'Saint Laurent', 'Bottega Veneta', 'Balenciaga', 'Celine', 'Fendi', 'Burberry', 'Armani',
+                'Dolce & Gabbana', 'Nike Vision', 'Adidas Eyewear', 'Under Armour', 'Revo', 'Costa Del Mar', 'Smith Optics', 'Julbo', 'Bollé',
+                'Spy Optic', 'Dragon Alliance', 'Electric', 'Arnette', 'POC', 'Tifosi', 'Rudy Project', 'Kaenon', 'Native Eyewear', 'Zeal Optics',
+                'Wiley X', 'Uvex', 'Alpina', 'Carrera', 'Police', 'Fossil', 'Vogue', 'Ralph Lauren', 'Tommy Hilfiger', 'Calvin Klein',
+                'Hugo Boss', 'Lacoste', 'Polo Ralph Lauren', 'Marc Jacobs', 'Kate Spade', 'Coach', 'Michael Kors', 'Tory Burch', 'Oliver Peoples',
+                'Randolph Engineering', 'American Optical', 'Bausch & Lomb', 'Serengeti', 'Vuarnet', 'Moscot', 'Garrett Leight', 'Barton Perreira',
+                'Cutler and Gross', 'Thierry Lasry', 'Mykita', 'Lindberg', 'Silhouette', 'Rodenstock', 'Zeiss', 'Essilor', 'Hoya', 'Ic! Berlin',
+                'Matsuda', 'Masunaga', 'Tavat', 'Thom Browne', 'Karen Walker', 'Le Specs', 'Ace & Tate', 'Spektre', 'Retrosuperfuture', 'Komono',
+                'A.Kjaerbede', 'Han Kjobenhavn', 'Monokel', 'Moncler', 'Stone Island', 'Off-White', 'Vetements', 'Acne Studios', 'Ganni', 'Stussy',
+                'Supreme', 'Palace', 'Kith', 'Fear of God', 'Rhude', 'Jacquemus', 'Lemaire', 'Jil Sander', 'Marni', 'Kenzo', 'Issey Miyake',
+                'Comme des Garçons', 'Yohji Yamamoto', 'Rick Owens', 'Ann Demeulemeester', 'Dries Van Noten', 'Maison Margiela', 'Gaultier',
+                'Helmut Lang', 'Raf Simons', 'Ambush', 'Alyx', 'Marine Serre', 'Heron Preston', 'Marcelo Burlon', 'Palm Angels', 'Amiri',
+                'Gallery Dept', 'Chrome Hearts', 'Mastermind', 'Bape', 'Neighborhood', 'Undercover', 'Visvim', 'Kapital', 'Wtaps',
+                'White Mountaineering', 'Sacai', 'Fragment', 'Billionaire Boys Club', 'A.P.C.', 'Carhartt WIP', 'C.P. Company', 'Ma Strum',
+                'Barbour', 'Belstaff', 'Patagonia', 'Arc\'teryx', 'The North Face', 'Salomon', 'Mammut', 'Haglöfs', 'Peak Performance',
+                'Helly Hansen', '66°North', 'Norrona', 'Klättermusen', 'Acronym', 'Veilance', 'Y-3', 'Adidas Originals', 'Nike ACG',
+                'Converse', 'Vans', 'New Balance', 'ASICS', 'Hoka', 'On Running', 'Allbirds', 'Veja', 'Common Projects', 'Golden Goose',
+                'Axel Arigato', 'Gola', 'Filling Pieces', 'Diemme', 'Danner', 'Red Wing', 'Dr. Martens', 'Timberland', 'Clarks', 'Paraboot',
+                'Church\'s', 'Tricker\'s', 'Crockett & Jones', 'Edward Green', 'John Lobb', 'Alden', 'Viberg', 'White\'s Boots', 'Wesco'
             ];
 
             const categories = ['Fashion', 'Sports', 'Luxury', 'Affordable', 'Designer', 'Performance', 'Premium', 'Ultra Luxury'];
             const styles = ['Classic', 'Modern', 'Retro', 'Minimalist', 'Bold', 'Vintage', 'Contemporary', 'Artistic', 'Avant-garde', 'Sleek'];
             const countries = ['USA', 'Italy', 'France', 'Germany', 'Japan', 'Australia', 'Switzerland', 'Denmark', 'Sweden', 'Canada', 'UK', 'Spain', 'Netherlands'];
 
-            // Generate unique brand names
-            const usedNames = new Set();
-            
+            // Generate brands using real brand names
             for (let i = 21; i <= 200; i++) {
-                let brandName;
-                let attempts = 0;
-                
-                // Generate unique brand name
-                do {
-                    const prefixIndex = Math.floor(Math.random() * prefixes.length);
-                    const suffixIndex = Math.floor(Math.random() * suffixes.length);
-                    brandName = `${prefixes[prefixIndex]} ${suffixes[suffixIndex]}`;
-                    attempts++;
-                } while (usedNames.has(brandName) && attempts < 100);
-                
-                usedNames.add(brandName);
+                // Use real brand names from our comprehensive list
+                const brandIndex = (i - 21) % realBrandNames.length;
+                const brandName = realBrandNames[brandIndex];
                 
                 const category = categories[Math.floor(Math.random() * categories.length)];
                 const style = styles[Math.floor(Math.random() * styles.length)];
