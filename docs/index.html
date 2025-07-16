@@ -175,6 +175,15 @@
             margin: 10px 0;
         }
         
+        .btn-warning {
+            background: #fd7e14;
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background: #e8650e;
+        }
+        
         .brands-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -470,6 +479,7 @@
                 
                 <div class="action-buttons">
                     <button class="btn btn-primary" onclick="exportCSV()">📊 Export CSV</button>
+                    <button class="btn btn-warning" onclick="generateBulkEmails()">📧 Bulk Email</button>
                     <button class="btn btn-secondary" onclick="refreshData()">🔄 Refresh Data</button>
                     <button class="btn btn-success" onclick="sendCollaborationEmail()">📧 Send Collaboration Email</button>
                     <button class="btn btn-primary" onclick="copyEmailTemplate()">📋 Copy Email Template</button>
@@ -809,7 +819,7 @@ SunglassAI Partnership Team`);
 
 Dear Partnership Team,
 
-I hope this email finds you well. My name is [Your Name], and I'm reaching out from SunglassAI, an innovative platform that's revolutionizing the way consumers discover and connect with premium eyewear brands.
+I hope this email finds you well. My name is Anya Ganger, and I'm reaching out from SunglassAI, an innovative platform that's revolutionizing the way consumers discover and connect with premium eyewear brands.
 
 SunglassAI offers:
 • AI-powered brand discovery for targeted consumer matching
@@ -820,8 +830,8 @@ SunglassAI offers:
 We'd love to explore collaboration opportunities that could drive real value for your brand.
 
 Best regards,
-[Your Name]
-SunglassAI Partnership Team`;
+Anya Ganger
+anya.sunglassretailer@gmail.com`;
 
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(template).then(() => {
@@ -990,6 +1000,78 @@ SunglassAI Partnership Team`;
             loadBrands();
             updateDebugStatus('🚀 SunglassAI Smart Discovery initialized successfully!');
         });
+
+        function generateBulkEmails() {
+            updateDebugStatus('📧 Generating bulk email content...');
+            
+            if (currentBrands.length === 0) {
+                showNotification('No brands available for bulk email!');
+                return;
+            }
+
+            const getPersonalizedEmailTemplate = (brandName) => {
+                return `Subject: Partnership Opportunity with SunglassAI
+
+Dear ${brandName} Team,
+
+I hope this email finds you well. My name is Anya Ganger, and I'm reaching out from SunglassAI, an innovative platform that's revolutionizing the way consumers discover and connect with premium eyewear brands.
+
+We've been impressed by ${brandName}'s commitment to quality and design excellence, and we believe there's a fantastic opportunity for collaboration between our platforms.
+
+SunglassAI offers:
+• AI-powered brand discovery for targeted consumer matching
+• Advanced analytics and market insights
+• Direct consumer engagement tools
+• Brand partnership opportunities
+
+We'd love to explore how we can work together to:
+• Increase ${brandName}'s visibility among qualified prospects
+• Provide valuable consumer insights and analytics
+• Create collaborative marketing opportunities
+• Drive qualified traffic to your brand
+
+Would you be available for a brief 15-minute call next week to discuss this opportunity? I'm confident we can create a mutually beneficial partnership that drives real value for ${brandName}.
+
+Looking forward to hearing from you.
+
+Best regards,
+Anya Ganger
+anya.sunglassretailer@gmail.com`;
+            };
+
+            let bulkEmailContent = `BULK EMAIL CAMPAIGN - ${currentBrands.length} BRANDS\n`;
+            bulkEmailContent += `Generated on: ${new Date().toLocaleDateString()}\n`;
+            bulkEmailContent += `From: Anya Ganger <anya.sunglassretailer@gmail.com>\n\n`;
+            bulkEmailContent += "=".repeat(80) + "\n\n";
+
+            currentBrands.forEach((brand, index) => {
+                bulkEmailContent += `EMAIL ${index + 1}/${currentBrands.length}\n`;
+                bulkEmailContent += `TO: ${brand.email}\n`;
+                bulkEmailContent += `BRAND: ${brand.name}\n`;
+                bulkEmailContent += "-".repeat(40) + "\n";
+                bulkEmailContent += getPersonalizedEmailTemplate(brand.name) + "\n\n";
+                bulkEmailContent += "=".repeat(80) + "\n\n";
+            });
+
+            // Copy to clipboard
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(bulkEmailContent).then(() => {
+                    showNotification(`Bulk email content for ${currentBrands.length} brands copied to clipboard!`);
+                    updateDebugStatus(`✅ Generated bulk emails for ${currentBrands.length} brands - Each email personalized with brand name and Anya Ganger's contact info`);
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = bulkEmailContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                showNotification(`Bulk email content for ${currentBrands.length} brands copied to clipboard!`);
+                updateDebugStatus(`✅ Generated bulk emails for ${currentBrands.length} brands - Each email personalized with brand name and Anya Ganger's contact info`);
+            }
+        }
     </script>
 </body>
 </html>

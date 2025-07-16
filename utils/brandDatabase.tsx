@@ -684,7 +684,7 @@ export const getEmailTemplate = (brandName: string) => {
 
 Dear ${brandName} Team,
 
-I hope this email finds you well. My name is [Your Name], and I'm reaching out from SunglassAI, an innovative platform that's revolutionizing the way consumers discover and connect with premium eyewear brands.
+I hope this email finds you well. My name is Anya Ganger, and I'm reaching out from SunglassAI, an innovative platform that's revolutionizing the way consumers discover and connect with premium eyewear brands.
 
 We've been impressed by ${brandName}'s commitment to quality and design excellence, and we believe there's a fantastic opportunity for collaboration between our platforms.
 
@@ -705,9 +705,36 @@ Would you be available for a brief 15-minute call next week to discuss this oppo
 Looking forward to hearing from you.
 
 Best regards,
-[Your Name]
-SunglassAI Partnership Team
-partnerships@sunglassai.com`;
+Anya Ganger
+anya.sunglassretailer@gmail.com`;
+};
+
+export const getBulkEmailContent = (brands: Brand[]) => {
+  return brands.map(brand => ({
+    brandName: brand.name,
+    email: brand.email,
+    subject: "Partnership Opportunity with SunglassAI",
+    content: getEmailTemplate(brand.name)
+  }));
+};
+
+export const generateBulkEmailText = (brands: Brand[]) => {
+  const emailData = getBulkEmailContent(brands);
+  let bulkText = `BULK EMAIL CAMPAIGN - ${emailData.length} BRANDS\n`;
+  bulkText += `Generated on: ${new Date().toLocaleDateString()}\n`;
+  bulkText += `From: Anya Ganger <anya.sunglassretailer@gmail.com>\n\n`;
+  bulkText += "=".repeat(80) + "\n\n";
+
+  emailData.forEach((email, index) => {
+    bulkText += `EMAIL ${index + 1}/${emailData.length}\n`;
+    bulkText += `TO: ${email.email}\n`;
+    bulkText += `BRAND: ${email.brandName}\n`;
+    bulkText += "-".repeat(40) + "\n";
+    bulkText += email.content + "\n\n";
+    bulkText += "=".repeat(80) + "\n\n";
+  });
+
+  return bulkText;
 };
 
 export const searchBrands = (brands: Brand[], query: string): Brand[] => {

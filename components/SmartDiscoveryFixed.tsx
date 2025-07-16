@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { getAllBrands, searchBrands, filterBrandsByCategory, getEmailTemplate, Brand } from '../utils/brandDatabase';
+import { getAllBrands, searchBrands, filterBrandsByCategory, getEmailTemplate, generateBulkEmailText, Brand } from '../utils/brandDatabase';
+import { initializeSendGrid, sendBulkEmails, validateSendGridSetup } from '../utils/emailService';
+import { SendGridSetupInstructions } from './SendGridSetupInstructions';
 
 export function SmartDiscoveryFixed() {
   const [allBrands, setAllBrands] = useState<Brand[]>([]);
@@ -10,6 +12,9 @@ export function SmartDiscoveryFixed() {
   const [emailsSent, setEmailsSent] = useState<Set<string>>(new Set());
   const [copiedEmails, setCopiedEmails] = useState<Set<string>>(new Set());
   const [debugInfo, setDebugInfo] = useState('Component loaded');
+  const [sendGridInitialized, setSendGridInitialized] = useState(false);
+  const [bulkEmailInProgress, setBulkEmailInProgress] = useState(false);
+  const [emailResults, setEmailResults] = useState<{ successful: number; failed: number; total: number } | null>(null);
 
   const categories = ['all', 'Luxury', 'Ultra Luxury', 'Sports', 'Fashion', 'Designer', 'Performance', 'Direct-to-Consumer'];
 
@@ -170,6 +175,123 @@ export function SmartDiscoveryFixed() {
     setDebugInfo('Test button clicked successfully!');
   };
 
+  const handleBulkEmail = async () => {
+    console.log('Bulk email clicked');
+    setDebugInfo('📧 Preparing bulk email campaign...');
+    
+    if (displayedBrands.length === 0) {
+      alert('❌ No brands available for bulk email!');
+      return;
+    }
+
+    // Ask user for confirmation and choice between sending or copying
+    const userChoice = confirm(`📧 BULK EMAIL CAMPAIGN\n\nPreparing to send personalized emails to ${displayedBrands.length} brands.\n\nClick OK to attempt sending via SendGrid, or Cancel to copy to clipboard.`);
+    
+    if (userChoice) {
+      // User wants to send emails via SendGrid
+      setBulkEmailInProgress(true);
+      setDebugInfo('🔧 Initializing SendGrid...');
+      
+      const isInitialized = await initializeSendGridService();
+      
+      if (isInitialized) {
+        try {
+          setDebugInfo(`📤 Sending emails to ${displayedBrands.length} brands...`);
+          
+          const results = await sendBulkEmails(
+            displayedBrands,
+            'anya.sunglassretailer@gmail.com',
+            5, // batch size
+            2000 // delay between batches (2 seconds)
+          );
+          
+          setEmailResults({
+            successful: results.successful,
+            failed: results.failed,
+            total: displayedBrands.length
+          });
+          
+          setDebugInfo(`✅ Bulk email campaign completed: ${results.successful} sent, ${results.failed} failed`);
+          alert(`✅ BULK EMAIL CAMPAIGN COMPLETED!\n\n` +
+                `📤 Successfully sent: ${results.successful} emails\n` +
+                `❌ Failed: ${results.failed} emails\n` +
+                `📊 Total: ${displayedBrands.length} brands\n\n` +
+                `Check console for detailed results.`);
+          
+          // Log detailed results
+          console.log('Detailed email results:', results.results);
+          
+        } catch (error) {
+          console.error('Bulk email error:', error);
+          setDebugInfo('❌ Bulk email campaign failed');
+          alert(`❌ BULK EMAIL FAILED\n\nError: ${error instanceof Error ? error.message : 'Unknown error'}\n\nFalling back to clipboard copy...`);
+          
+          // Fallback to clipboard copy
+          fallbackToClipboard();
+        }
+      } else {
+        setDebugInfo('⚠️ SendGrid not available, falling back to clipboard');
+        alert('⚠️ SendGrid not configured properly. Copying to clipboard instead...');
+        fallbackToClipboard();
+      }
+      
+      setBulkEmailInProgress(false);
+    } else {
+      // User wants to copy to clipboard
+      fallbackToClipboard();
+    }
+  };
+
+  const fallbackToClipboard = () => {
+    try {
+      const bulkEmailContent = generateBulkEmailText(displayedBrands);
+      
+      navigator.clipboard.writeText(bulkEmailContent).then(() => {
+        setDebugInfo(`📋 Bulk email content copied for ${displayedBrands.length} brands!`);
+        alert(`✅ SUCCESS: Bulk email content for ${displayedBrands.length} brands copied to clipboard!\n\nEach email is personalized with the brand name and includes Anya Ganger's contact information.`);
+      }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = bulkEmailContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        setDebugInfo(`📋 Bulk email content copied for ${displayedBrands.length} brands!`);
+        alert(`✅ SUCCESS: Bulk email content for ${displayedBrands.length} brands copied to clipboard!\n\nEach email is personalized with the brand name and includes Anya Ganger's contact information.`);
+      });
+    } catch (error) {
+      console.error('Error generating bulk email:', error);
+      setDebugInfo('❌ Failed to generate bulk email');
+      alert('❌ ERROR: Failed to generate bulk email content');
+    }
+  };
+
+  const initializeSendGridService = async () => {
+    try {
+      const apiKey = (import.meta as any).env.VITE_SENDGRID_API_KEY;
+      if (!apiKey) {
+        setDebugInfo('⚠️ SendGrid API key not found. Please set VITE_SENDGRID_API_KEY in .env file');
+        alert('⚠️ SendGrid API key not configured. Emails will be copied to clipboard instead.');
+        return false;
+      }
+      
+      const initialized = initializeSendGrid(apiKey);
+      if (initialized) {
+        const validation = await validateSendGridSetup();
+        setSendGridInitialized(validation.isValid);
+        setDebugInfo(validation.isValid ? '✅ SendGrid initialized successfully' : `❌ SendGrid validation failed: ${validation.message}`);
+        return validation.isValid;
+      }
+      return false;
+    } catch (error) {
+      console.error('Error initializing SendGrid:', error);
+      setDebugInfo('❌ Failed to initialize SendGrid');
+      return false;
+    }
+  };
+
   return (
     <div style={{ 
       padding: '20px', 
@@ -251,6 +373,29 @@ export function SmartDiscoveryFixed() {
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#17a2b8'}
           >
             📄 Export CSV ({displayedBrands.length} brands)
+          </button>
+          
+          <button
+            onClick={handleBulkEmail}
+            disabled={bulkEmailInProgress}
+            style={{
+              padding: '12px 20px',
+              backgroundColor: bulkEmailInProgress ? '#6c757d' : '#fd7e14',
+              color: 'white',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: bulkEmailInProgress ? 'not-allowed' : 'pointer',
+              fontSize: '16px',
+              fontWeight: '600',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseEnter={(e) => !bulkEmailInProgress && (e.currentTarget.style.backgroundColor = '#e8650e')}
+            onMouseLeave={(e) => !bulkEmailInProgress && (e.currentTarget.style.backgroundColor = '#fd7e14')}
+          >
+            {bulkEmailInProgress ? '⏳ Sending Emails...' : `📧 Bulk Email (${displayedBrands.length} brands)`}
           </button>
           
           <button
@@ -361,6 +506,27 @@ export function SmartDiscoveryFixed() {
           </div>
         ))}
       </div>
+
+      {/* Email Results Panel */}
+      {emailResults && (
+        <div style={{
+          backgroundColor: '#e8f5e8',
+          border: '1px solid #28a745',
+          borderRadius: '8px',
+          padding: '16px',
+          marginBottom: '20px'
+        }}>
+          <h4 style={{ margin: '0 0 8px 0', color: '#28a745' }}>📊 Bulk Email Campaign Results</h4>
+          <p style={{ margin: 0, fontSize: '14px' }}>
+            📤 <strong>{emailResults.successful}</strong> emails sent successfully | 
+            ❌ <strong>{emailResults.failed}</strong> failed | 
+            📊 <strong>{emailResults.total}</strong> total brands
+          </p>
+        </div>
+      )}
+
+      {/* SendGrid Setup Instructions */}
+      <SendGridSetupInstructions />
 
       {/* Brand Grid */}
       {loading ? (
